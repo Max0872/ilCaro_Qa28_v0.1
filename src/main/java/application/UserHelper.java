@@ -22,9 +22,9 @@ public class UserHelper extends HelperBase{
     }
 
     public void agree() {
-        click(By.xpath("//label[contains(text(),\"I agree to the\")]"));
+        click(By.xpath("//label[@for='terms-of-use']"));
     }
     public void clickOkButton() {
-        click(By.xpath("//button[contains(text(),\"Y’alla!\")]"));
+        By.xpath(("//*[@type='submit']"));
     }
 }
