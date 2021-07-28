@@ -8,11 +8,8 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver wd;
     UserHelper userHelper;
-    CarHelper carhelper;
-
-    public CarHelper getCarhelper() {
-        return carhelper;
-    }
+    CarHelper carHelper;
+    SearchHelper search;
 
     public void init(){
         wd= new ChromeDriver();
@@ -20,7 +17,9 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.navigate().to("https://ilcarro.xyz/search");
         userHelper = new UserHelper(wd);
-        carhelper = new CarHelper(wd);
+        carHelper= new CarHelper(wd);
+        search = new SearchHelper(wd);
+
     }
 
     public void stop(){
@@ -29,5 +28,13 @@ public class ApplicationManager {
 
     public UserHelper userHelper() {
         return userHelper;
+    }
+
+    public CarHelper carHelper() {
+        return carHelper;
+    }
+
+    public SearchHelper search() {
+        return search;
     }
 }
